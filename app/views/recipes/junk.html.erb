@@ -1,0 +1,10 @@
+
+<input type="checkbox" id=<%= ingredient.name %> name=<%="ingredient[#{ingredient.id}]"%> ><%= ingredient.name %><br>
+
+<% @ingredients.each do |ingredient| %>
+
+
+<input type="checkbox" id=<%= ingredient.name %> name=<%="ingredient[#{ingredient.id}]"%> ><%= ingredient.name %><br>
+
+
+ <% end %>

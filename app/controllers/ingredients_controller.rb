@@ -1,4 +1,5 @@
 class IngredientsController < ApplicationController
+  before_action :find_ingredient, only: [:edit, :show, :update]
 
   def index
     @ingredients = Ingredient.all
@@ -16,15 +17,15 @@ class IngredientsController < ApplicationController
   end
 
   def show
-    @ingredient = Ingredient.find(params[:id])
+    # @ingredient = Ingredient.find(params[:id])
   end
 
   def edit
-    @ingredient = Ingredient.find(params[:id])
+    # @ingredient = Ingredient.find(params[:id])
   end
 
   def update
-    @ingredient = Ingredient.find(params[:id])
+
     @ingredient.update(ingredient_params(:name, :storage))
 
     redirect_to ingredient_path(@ingredient)
@@ -34,6 +35,10 @@ class IngredientsController < ApplicationController
 
     def ingredient_params(*args)
       params.require(:ingredient).permit(*args)
+    end
+
+    def find_ingredient
+      @ingredient = Ingredient.find(params[:id])
     end
 
 
