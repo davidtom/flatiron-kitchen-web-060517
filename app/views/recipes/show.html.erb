@@ -1,0 +1,13 @@
+<h1><%= @recipe.name %></h1>
+
+<h3>Ingredients</h3>
+<% @recipe_ingredients.each do |recipe_ingredient| %>
+<li> <%= recipe_ingredient.ingredient.name %> </li>
+<label>Quantity: </label>
+<%= recipe_ingredient.ingredient_quantity %>
+<% end %>
+
+<form action=<%= edit_recipe_path(@recipe) %> method="get">
+  <input type="submit" name="submit" value="Edit Recipe" />
+
+</form>

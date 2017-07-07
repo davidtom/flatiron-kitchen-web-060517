@@ -1,0 +1,7 @@
+<h1><%= @ingredient.name %></h1>
+<label >Amount of ingredient stored:</label>
+<%= @ingredient.storage %>
+<form action=<%= edit_ingredient_path(@ingredient) %> method="get">
+  <input type="submit" name="submit" value="Edit Ingredient" />
+
+</form>

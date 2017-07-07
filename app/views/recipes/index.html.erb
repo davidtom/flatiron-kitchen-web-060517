@@ -1,0 +1,10 @@
+<h1>All Recipes</h1>
+<% @recipes.each do |recipe| %>
+<li><%= link_to recipe.name, recipe_path(recipe) %></li>
+<br>
+<% end %>
+<br>
+<form action=<%= new_recipe_path %> method="get">
+  <input type="Submit" name="Submit" value="Add new recipe">
+
+</form>

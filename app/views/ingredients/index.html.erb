@@ -1,0 +1,11 @@
+<h1>All Ingredients</h1>
+<% @ingredients.each do |ingredient| %>
+<li><%= link_to ingredient.name, ingredient_path(ingredient) %></li>
+<label>Amount:</label>
+<%= ingredient.storage %>
+<% end %>
+<br>
+<form action=<%= new_ingredient_path %> method="get">
+  <input type="Submit" name="Submit" value="Add new ingredient">
+
+</form>
