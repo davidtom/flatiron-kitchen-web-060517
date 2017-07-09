@@ -3,5 +3,8 @@
 <%= @ingredient.storage %>
 <form action=<%= edit_ingredient_path(@ingredient) %> method="get">
   <input type="submit" name="submit" value="Edit Ingredient" />
+</form>
 
+<form action=<%= ingredients_path %> method="get">
+  <input type="submit" name="submit" value="View all ingredients" />
 </form>

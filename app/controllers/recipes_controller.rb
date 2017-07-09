@@ -12,10 +12,8 @@ class RecipesController < ApplicationController
   end
 
   def create
-    # binding.pry
     @recipe = Recipe.create(recipe_params(:name))
-    @recipe.add_ingredients(ingredient_params(:ingredient_name))
-    # binding.pry
+    @recipe.add_ingredients(recipe_params(ingredient_ids:[])[:ingredient_ids])
     @recipe.save
 
     redirect_to recipe_path(@recipe)
@@ -31,7 +29,7 @@ class RecipesController < ApplicationController
 
   def update
     @recipe.update(recipe_params(:name))
-
+    @recipe.update_ingredients(recipe_params(ingredient_ids:[])[:ingredient_ids])
     redirect_to recipe_path(@recipe)
   end
 
@@ -41,12 +39,7 @@ class RecipesController < ApplicationController
       params.require(:recipe).permit(*args)
     end
 
-    def ingredient_params(*args)
-      params.require(:recipe_ingredient).permit!
-    end
-
     def find_recipe
       @recipe = Recipe.find(params[:id])
     end
-
 end
